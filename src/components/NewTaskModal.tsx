@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 import { Button } from "@nextui-org/button";
 import {
@@ -13,12 +12,13 @@ import {
 } from "@nextui-org/modal";
 import { Input } from "@nextui-org/input";
 
-export const NewTask = () => {
-  const router = useRouter();
+import type { NewTask } from "@/types/newTask";
+import { createNewTask } from "@/utils/createNewTask";
 
+export const NewTaskModal = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const [newTask, setNewTask] = useState({
+  const [newTask, setNewTask] = useState<NewTask>({
     title: "",
     description: "",
   });
@@ -26,16 +26,7 @@ export const NewTask = () => {
   const [isError, setIsError] = useState(true);
 
   const handleAddClick = async () => {
-    try {
-      await fetch("/api/tasks", {
-        method: "POST",
-        body: JSON.stringify(newTask),
-        cache: "no-cache",
-      });
-      router.refresh();
-    } catch (error) {
-      console.error(error);
-    }
+    createNewTask(newTask);
 
     onOpenChange();
   };

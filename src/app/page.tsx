@@ -1,20 +1,13 @@
-import { NewTask } from "@/components/NewTask";
+import { NewTaskModal } from "@/components/NewTaskModal";
 import { TaskCard } from "@/components/TaskCard";
 import type { Task } from "@/types/task";
 
 import { Divider } from "@nextui-org/divider";
 
-const getTasks = async () => {
-  const res = await fetch("http://localhost:3000/api/tasks", {
-    cache: "no-cache",
-  });
-  const data = await res.json();
-
-  return data;
-};
+import { getAllTasks } from "@/utils/getAllTasks";
 
 export default async function Home() {
-  const tasks = await getTasks();
+  const tasks = await getAllTasks();
 
   return (
     <main className="w-full sm:min-h-screen flex justify-center">
@@ -24,7 +17,7 @@ export default async function Home() {
         <Divider className="my-6" />
 
         <div className="flex flex-col gap-4">
-          <NewTask />
+          <NewTaskModal />
 
           {tasks.map((task: Task) => (
             <TaskCard key={task.id} task={task} />

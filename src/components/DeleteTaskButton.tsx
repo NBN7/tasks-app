@@ -1,37 +1,22 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
 import { MdDelete } from "react-icons/md";
 
 type DeleteTaskButtonProps = {
   id: Number;
 };
 
+import { deleteTask } from "@/utils/deleteTask";
+
 export const DeleteTaskButton = ({ id }: DeleteTaskButtonProps) => {
-  const router = useRouter();
-
-  const handleDeleteClick = async (id: Number) => {
-    try {
-      await fetch(`/api/tasks/${id}`, {
-        method: "DELETE",
-        body: JSON.stringify({ id }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        cache: "no-cache",
-      });
-    } catch (error) {
-      console.error(error);
-    }
-
-    router.refresh();
+  const handleDeleteClick = async () => {
+    deleteTask(id);
   };
 
   return (
     <MdDelete
       className="cursor-pointer"
-      onClick={() => handleDeleteClick(id)}
+      onClick={handleDeleteClick}
       size="22px"
     />
   );
