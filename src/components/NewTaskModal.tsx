@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 
+import { useRouter } from "next/navigation";
+
 import { Button } from "@nextui-org/button";
 import {
   Modal,
@@ -13,9 +15,12 @@ import {
 import { Input } from "@nextui-org/input";
 
 import type { NewTask } from "@/types/newTask";
+
 import { createNewTask } from "@/utils/createNewTask";
 
 export const NewTaskModal = () => {
+  const router = useRouter();
+
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const [newTask, setNewTask] = useState<NewTask>({
@@ -27,6 +32,8 @@ export const NewTaskModal = () => {
 
   const handleAddClick = async () => {
     createNewTask(newTask);
+
+    router.refresh();
 
     onOpenChange();
   };
