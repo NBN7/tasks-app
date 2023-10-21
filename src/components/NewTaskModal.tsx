@@ -47,7 +47,7 @@ export const NewTaskModal = () => {
   };
 
   useEffect(() => {
-    if (!newTask.title || !newTask.description) {
+    if (!newTask.title.trim() || !newTask.description.trim()) {
       setIsError(true);
       return;
     }
@@ -60,7 +60,7 @@ export const NewTaskModal = () => {
         className="w-full"
         onPress={onOpen}
         radius="md"
-        color="default"
+        color="primary"
         variant="bordered"
       >
         New Task
