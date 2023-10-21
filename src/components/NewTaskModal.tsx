@@ -33,6 +33,8 @@ export const NewTaskModal = () => {
   const handleAddClick = async () => {
     createNewTask(newTask);
 
+    setNewTask({ title: "", description: "" });
+
     router.refresh();
 
     onOpenChange();

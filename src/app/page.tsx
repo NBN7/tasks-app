@@ -1,5 +1,6 @@
 import { NewTaskModal } from "@/components/NewTaskModal";
 import { TaskCard } from "@/components/TaskCard";
+
 import type { Task } from "@/types/task";
 
 import { Divider } from "@nextui-org/divider";
