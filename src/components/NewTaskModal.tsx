@@ -18,6 +18,8 @@ import type { NewTask } from "@/types/newTask";
 
 import { createNewTask } from "@/utils/createNewTask";
 
+import { mobile } from "@/styles/mobile";
+
 export const NewTaskModal = () => {
   const router = useRouter();
 
@@ -56,7 +58,13 @@ export const NewTaskModal = () => {
 
   return (
     <>
-      <Button onPress={onOpen} radius="md" color="default" variant="bordered">
+      <Button
+        className={`${mobile} sm:w-full`}
+        onPress={onOpen}
+        radius="md"
+        color="default"
+        variant="bordered"
+      >
         New Task
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
