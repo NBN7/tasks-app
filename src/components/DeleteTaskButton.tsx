@@ -21,7 +21,7 @@ export const DeleteTaskButton = ({ id }: DeleteTaskButtonProps) => {
 
   return (
     <MdDelete
-      className="cursor-pointer"
+      className="cursor-pointer hover:text-[#0070f0] transition-all"
       onClick={handleDeleteClick}
       size="22px"
     />
