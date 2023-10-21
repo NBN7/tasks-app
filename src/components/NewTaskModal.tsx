@@ -60,7 +60,6 @@ export const NewTaskModal = () => {
         className="w-full"
         onPress={onOpen}
         radius="md"
-        color="primary"
         variant="bordered"
       >
         New Task
