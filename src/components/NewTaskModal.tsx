@@ -75,12 +75,14 @@ export const NewTaskModal = () => {
               label="Title"
               type="text"
               placeholder="My task"
+              required
             />
             <Input
               onChange={handleDescriptionChange}
               label="Description"
               type="text"
-              placeholder="Do somethihg"
+              placeholder="Do something"
+              required
             />
           </ModalBody>
 
