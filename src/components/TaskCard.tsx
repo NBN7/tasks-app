@@ -7,12 +7,10 @@ type TaskCardProps = {
 import { UpdateTaskButton } from "./UpdateTaskButton";
 import { DeleteTaskButton } from "./DeleteTaskButton";
 
-import { mobile } from "@/styles/mobile";
-
 export const TaskCard = ({ task }: TaskCardProps) => {
   return (
     <div
-      className={`${mobile} w-full flex items-center justify-between gradient p-4 rounded-md`}
+      className={`w-full flex items-center justify-between gradient p-4 rounded-md`}
     >
       <section className="pointer-events-none flex flex-col gap-2 overflow-hidden">
         <h2 className="text-lg font-semibold truncate">{task.title}</h2>
