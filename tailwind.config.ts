@@ -10,15 +10,6 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    screens: {
-      "iphone-se": "375px",
-      "iphone-xr": "414px",
-      "iphone-12-pro": "390px",
-      "pixel-5": "393px",
-      "galaxy-s8-plus": "360px",
-      "galaxy-s20-ultra": "412px",
-      "galaxy-fold": "280px",
-    },
     extend: {},
   },
   darkMode: "class",
