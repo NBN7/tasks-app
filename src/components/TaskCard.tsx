@@ -7,17 +7,29 @@ type TaskCardProps = {
 import { UpdateTaskButton } from "./UpdateTaskButton";
 import { DeleteTaskButton } from "./DeleteTaskButton";
 
+import { mobile } from "@/styles/mobile";
+
 export const TaskCard = ({ task }: TaskCardProps) => {
   return (
-    <div className="w-full flex items-center justify-between gradient p-4 rounded-md">
-      <section>
-        <h2 className="text-lg font-semibold">{task.title}</h2>
-        <p>{task.description}</p>
+    <div
+      className={`${mobile} w-full flex items-center justify-between gradient p-4 rounded-md`}
+    >
+      <section className="pointer-events-none flex flex-col gap-2 overflow-hidden">
+        <h2 className="text-lg font-semibold truncate">{task.title}</h2>
+        <p className="truncate">{task.description}</p>
+        <p className="text-xs">
+          {new Date(task.createdAt).toLocaleDateString()}
+        </p>
       </section>
 
-      <section className="flex gap-4">
-        <UpdateTaskButton />
-        <DeleteTaskButton id={task.id} />
+      <section className="flex gap-4 m-3">
+        <abbr title="Update">
+          <UpdateTaskButton />
+        </abbr>
+
+        <abbr title="Delete">
+          <DeleteTaskButton id={task.id} />
+        </abbr>
       </section>
     </div>
   );
