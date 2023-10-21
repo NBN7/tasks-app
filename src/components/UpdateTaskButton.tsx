@@ -7,8 +7,8 @@ export const UpdateTaskButton = () => {
 
   return (
     <MdEdit
+      className="cursor-pointer hover:text-[#0070f0] transition-all"
       onClick={handleEditClick}
-      style={{ cursor: "pointer" }}
       size="22px"
     />
   );
