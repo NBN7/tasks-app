@@ -6,7 +6,7 @@ import { Divider } from "@nextui-org/divider";
 
 import { getAllTasks } from "@/utils/getAllTasks";
 
-export default async function Home() {
+export default async function HomePage() {
   const tasks = await getAllTasks();
 
   return (
@@ -16,7 +16,7 @@ export default async function Home() {
 
         <Divider className="my-6" />
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-center">
           <NewTaskModal />
 
           {tasks.map((task: Task) => (
