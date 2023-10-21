@@ -24,7 +24,7 @@ export const TaskCard = ({ task }: TaskCardProps) => {
 
       <section className="flex gap-4 m-3">
         <abbr title="Update">
-          <UpdateTaskButton />
+          <UpdateTaskButton id={task.id} />
         </abbr>
 
         <abbr title="Delete">

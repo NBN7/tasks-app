@@ -59,6 +59,7 @@ export const NewTaskModal = () => {
   return (
     <>
       <Button
+        size="lg"
         className="w-full"
         onPress={onOpen}
         radius="md"

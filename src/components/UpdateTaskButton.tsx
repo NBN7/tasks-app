@@ -1,9 +1,19 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { MdEdit } from "react-icons/md";
 
-export const UpdateTaskButton = () => {
-  const handleEditClick = () => {};
+type UpdateTaskButtonProps = {
+  id: Number;
+};
+
+export const UpdateTaskButton = ({ id }: UpdateTaskButtonProps) => {
+  const router = useRouter();
+
+  const handleEditClick = () => {
+    router.push(`/tasks/edit/${id}`);
+  };
 
   return (
     <MdEdit
